@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+        <style>
+            .box{
+                width: 100px;
+                height: 100px;
+                text-decoration: wavy;    
+                background-color:blanchedalmond;
+                margin-top: 5px;
+
+            }
+            .yellow{
+                background-color:yellow;
+            }
+            .red{
+                background-color: red;
+            }
+            .black{
+                background-color:black;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="app">
+            <div @click="color=!color" class="box" :class="effect()" name="odev1"></div><br>
+
+            <div @click="Boolean=!Boolean" class="box" :class="[{yellow: Boolean},{red: !Boolean}]" name="odev2"></div><br>
+           
+                input:  <input type="text" v-model:input="input">
+            <div class="box" :class="input" name="odev3"></div><br>
+          
+            <div name="odev4">
+                
+                input2: <input type="text" vmodel:a="input2">
+                <div class="box" :class="input2" name="odev4"></div>
+            
+            </div>
+
+
+        </div>
+
+        <script>
+          /*  new Vue({
+                el: "#app",
+                data: {
+                    color: true,
+                    Boolean: true,
+                    input:"",
+                    input2:"black",
+                    move:"1"
+                },
+                methods: {
+                    effect: function(){
+                        var vm=this;
+                        setInterval(function(){
+                        
+                        return {
+                             yellow: vm.color,
+                             red: !vm.color 
+                    }
+                    },500)
+                }
+
+            });*/
+
+        </script>
+    </body>
+</html>

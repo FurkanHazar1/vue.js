@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    </head>
+    <body>
+        <div id="exercise">
+            
+            <button @click="goster=!goster">göster if</button>
+            <p v-if="goster">Beni Görebiliyor musun?</p>
+            <p v-else>Ya da beni görebiliyor musun?</p>
+            
+            <button @click="show=!show">show</button>
+            <p v-show="show">Beni Görebiliyor musun?</p>
+            <p v-show="!show">Ya da beni görebiliyor musun?</p>
+            <hr>
+            
+            <ul>
+                <h3>array</h3>
+                <li v-for="(array,a) in array">{{array}} {{a}}</li>
+            </ul>
+            <hr>
+
+            <ul>
+                <h3>key value</h3>
+                <li v-for="(key,value,index) in customObject"> <strong>{{value}}:</strong> {{key}} {{index}} </li>
+            </ul>
+            <hr>
+
+            <ul>
+                <li v-for="(key,value,index) in testData" :key="">{{key}} {{value}} {{index}}
+                <ul v-if="index==2">
+                    <li v-for="data in testData.data">{{data}}</li>
+                </ul></li>
+            </ul>
+
+
+
+        </div>
+        <script>
+            new Vue({
+                el: '#exercise',
+                data: {
+                    show: true,
+                    goster:true,
+                    array: ['Gökhan', 'Defne', 'Berk', 'Özge'],
+                    customObject: {
+                    title: 'Game of Thrones',
+                    author: 'George R.R',
+                    books: '7'
+                    },
+                    testData: {
+                    name: 'TESTOBJECT', 
+                    id: 10,
+                    data: [1.67, 1.33, 0.98, 2.21]
+                    }
+                }
+                });
+
+        </script>
+    </body>
+</html>

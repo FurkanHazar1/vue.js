@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    </head>
+    <body>
+        <div id="exercise">
+            <button @click="value+=5">5 artır</button>
+            <button @click="value-=1">1 azalt</button><br>
+            <p>value={{value}} </p><br>
+           <p>{{result}}</p>
+        
+        </div>
+        <script>
+            new Vue({
+                el:"#exercise",
+                data:{
+                    value:0,
+                    timeout:2000
+                },
+               computed:{
+                    result: function(){
+                        return this.value== 33? "tamamlandı":"tamamlanmadı"
+                    }
+                },
+                watch:{
+                    result:function(value){
+                        vm = this
+                        setTimeout(function(){
+                            vm.value=0
+                        },this.timeout)
+                    }
+                }
+
+            });
+        </script>
+    </body>
+</html>

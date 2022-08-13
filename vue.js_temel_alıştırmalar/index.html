@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    </head>
+    <body>
+        <div id="exercise">
+
+            <table border="5px">
+              <tr>
+                <td>name:<input type="text" v-on:input=inputName></td>
+                 <td>age: <input type="text" v-on:input=inputAge></td>
+              </tr>
+                <tr><td><p>name:{{name}}</p></td><td>age:{{age}}</td></tr>
+               <tr><td>age*5: {{age5}}</td></tr>
+               <tr><td><img v-bind:src=link></td><td><p>rand: {{rand1()}}</p></td></tr>
+            </table>
+
+         
+      
+      </div>
+
+
+
+      <script>
+      new Vue({    
+        el: "#exercise",
+        data:{
+        name:"Ahmet Furkan",
+         age:"20",
+         age5: 5*20,
+         link:"https://media.istockphoto.com/photos/male-lion-resting-on-a-rock-picture-id1333977253?b=1&k=20&m=1333977253&s=170667a&w=0&h=q_EqYl_GqFCR1XmF_AK91YRFDapwAClOoc2fZbsnmr4=",
+         rand:""
+        },
+        methods:{
+                inputName: function(event){
+                    this.name=event.target.value  
+                 },
+                inputAge:function(event){
+                    this.age=event.target.value
+                },
+                rand1:function(){
+                    return Math.random()
+                }
+        }
+        
+       });
+                
+                
+            
+
+      </script>
+    </body>
+</html>
